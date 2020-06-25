@@ -10,6 +10,7 @@ def pretty_print_state(state):
     state = state.strip('\'').strip('\"').strip()
     return state
 
+
 def demo_n_games(agent, n_games=1000, mode='agent'):
     '''Run n game simulations and compute the average performance'''
     scores = []

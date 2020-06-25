@@ -9,7 +9,7 @@ class Agent():
     '''
 
     def __init__(self, env, epsilon=0.1, alpha=1,
-                 gamma=0.999, default_actions=['n','s','e','w']):
+                 gamma=0.999, default_actions=['n', 's', 'e', 'w']):
         self.game = env  # Init as FrotzEnv("story_file.z3/5/8")
         self.epsilon = epsilon  # Rate of exploration
         self.alpha = alpha  # Learning rate
@@ -21,7 +21,7 @@ class Agent():
         self.valid_actions = dict()  # Cache of valid actions for states seen
 
     # ---------------------------------------------------------------------- #
-    ## Utility/helper/base methods:
+    # Utility/helper/base methods:
     def get_state_pretty(self):
         '''Get state, return it as prettified, human-readable string
         using pretty_print_state() from utils
@@ -36,7 +36,8 @@ class Agent():
         if state not in self.valid_actions.keys():
             available_actions = self.game.get_valid_actions()
             # For edge case: No valid actions found by Jericho's NLP functions
-            if not available_actions: available_actions = self.default_actions
+            if not available_actions:
+                available_actions = self.default_actions
             self.valid_actions[state] = available_actions
         return self.valid_actions[state]
 
@@ -69,12 +70,12 @@ class Agent():
         state = self.get_state_pretty()
         max_val = self.get_max_state_value(state)
         available_actions = self.get_valid_actions_memo()
-        max_val_actions = [a for a in available_actions \
-                           if self.get_sa_value(state, a)==max_val]
+        max_val_actions = [a for a in available_actions
+                           if self.get_sa_value(state, a) == max_val]
         return random.choice(max_val_actions)
 
     # ---------------------------------------------------------------------- #
-    ## Methods for reinforcement learning:
+    # Methods for reinforcement learning:
     def learn_select_action(self):
         '''Select best action with probability 1-epsilon (exploit),
         select random action with probability epsilon (explore)
@@ -121,7 +122,7 @@ class Agent():
                 print(f'Game #{episode} final score: {self.game.get_score()}')
 
     # ---------------------------------------------------------------------- #
-    ## Method for demoing game:
+    # Method for demoing game:
     def demo_game(self, mode='agent', verbose=True):
         self.game.reset()
         if mode == 'human':
@@ -159,7 +160,7 @@ class Agent():
             # If input anything else for mode, throw error
             else:
                 msg = 'ERROR: The playthrough mode entered does not exist. ' \
-                      + 'Enter "random" for a playthrough with random moves, ' \
+                      + 'Enter "random" for a playthrough with random moves, '\
                       + '"walkthrough" for a playthrough with the optimal ' \
                       + 'steps to get the highest possible score, ' \
                       + '"agent" for a playthrough with the best moves ' \
@@ -167,12 +168,12 @@ class Agent():
                       + 'or "human" to play through interactively.'
                 return msg
 
-            if verbose == True and mode!='human':
+            if verbose and mode != 'human':
                 print(f'Iteration {i}')
                 print(f'State: {self.get_state_pretty()}')
                 print(f'Action selected: {action}')
             self.game.step(action)
-            if verbose == True and mode!='human':
+            if verbose and mode != 'human':
                 print(f'Total score after step: {self.game.get_score()}')
                 print()
             i += 1
