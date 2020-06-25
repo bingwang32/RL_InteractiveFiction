@@ -1,4 +1,4 @@
-# Reinforcement_Learning_Project
+# RL_InteractiveFiction
 Train a reinforcement learning agent to navigate interactive fiction games<br>
 
 Built on Jericho, a lightweight python-based interface connecting learning agents with interactive fiction games:
