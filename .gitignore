@@ -1,7 +1,5 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
-custom_gym_stock_trading_Medium.pdf
-logs
-pytorch
-tdqn
+__pycache__
+scratch
 z-machine-games-master
