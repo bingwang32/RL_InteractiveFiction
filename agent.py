@@ -2,6 +2,8 @@ from jericho import *
 import numpy as np
 import random
 
+from utils import *
+
 
 class Agent():
     '''A Q-learning agent with TD(0) updates, compatible with Jericho's
