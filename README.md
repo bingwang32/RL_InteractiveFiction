@@ -39,10 +39,12 @@ I used *Q-learning* to train my agent. Q-learning worked for this problem becaus
 - *Off-policy learning:* Learn from policies not used in gameplay
 
 # Model and Results
+I trained my agent on the game *Detective* by Matt Barringer, a film-noir-esque detective mystery included in [Jericho's set of supported interactive fiction stories.](https://jericho-py.readthedocs.io/en/latest/tutorial_quick.html#acquire-games)
+
 I used a Q-learning model, implemented using a custom-built [Agent class](https://github.com/bingwang32/RL_InteractiveFiction/blob/master/agent.py).
 
 Comparison of agent performance (when trained over 10, 100, 1000, and 10,000 episodes) vs. random baseline vs. maximum possible score:
-<img src="images/performance_comparison.jpg" width="850">
+<img src="images/performance_comparison.png" width="850">
 
 # Links
 Please see my [full report](https://github.com/bingwang32/RL_InteractiveFiction/blob/master/Navigating_Interactive_Fiction_with_Reinforcement_Learning.ipynb) for interpretation of results, lessons learned, and extensions.
